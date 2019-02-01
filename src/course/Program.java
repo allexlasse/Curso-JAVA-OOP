@@ -1,5 +1,4 @@
 package course;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Locale;
@@ -12,19 +11,28 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int a, b, c;
-		a = sc.nextInt();
-		b = sc.nextInt();
-		c = sc.nextInt();
+		HashSet<Integer> Numbers = new HashSet<Integer>();
 		
-		System.out.println(HigherBetween(a,b,c));
+		
+		for(int i = 0;;i++) {
+			System.out.print("Enter the " + (i+1) + "º number or '0' to exit: ");
+			int aux = sc.nextInt();
+			if(aux == 0)
+				break;
+			Numbers.add(aux);
+			
+		}
+				
+		System.out.println("The highest number typed was: " + HigherBetween(Numbers));
 		
 		sc.close();
 	}
 	
-	public static int HigherBetween (int x, int y, int z) {
-		HashSet<Integer> List = new HashSet<Integer>(Arrays.asList(x, y, z));
+	public static int HigherBetween (HashSet<Integer> List) {
 		int Higher = Collections.max(List);
 		return Higher;
 	}
 }
+
+
+
