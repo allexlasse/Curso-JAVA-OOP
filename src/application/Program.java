@@ -2,6 +2,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Triangle;
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -9,33 +11,27 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		double[] X = new double[3] , Y = new double[3];
+		Triangle x = new Triangle() , y = new Triangle();
 		
 		System.out.println("Measures of triagle X: ");
-		X[0] = sc.nextDouble();
-		X[1] = sc.nextDouble();
-		X[2] = sc.nextDouble();
+		x.a = sc.nextDouble();
+		x.b = sc.nextDouble();
+		x.c = sc.nextDouble();
+		
 		System.out.println("Measures of triangle Y: ");
-		Y[0] = sc.nextDouble();
-		Y[1] = sc.nextDouble();
-		Y[2] = sc.nextDouble();
+		y.a = sc.nextDouble();
+		y.b = sc.nextDouble();
+		y.c = sc.nextDouble();
 		
-		double p = (X[0] + X[1] + X[2]) / 2.0;
-		double areaX = Math.sqrt(p * (p-X[0]) * (p-X[1]) * (p-X[2]));
+		System.out.println("Triangle X area: " + x.Area());
+		System.out.println("Triangle Y area: " + y.Area());
 		
-		p = (Y[0] + Y[1] + Y[2]) / 2.0;
-		double areaY = Math.sqrt(p * (p-Y[0]) * (p-Y[1]) * (p-Y[2]));
-		
-		System.out.printf("Triangle X area: %.4f\n", areaX);
-		System.out.printf("Triangle Y area: %.4f\n", areaY);
-		
-		if(areaX>areaY)
-			System.out.println("Larger area: X");
-		else if(areaX<areaY)
-			System.out.println("Larger area: Y");
+		if(x.Area() > y.Area())
+			System.out.println("Triangle X has the largest area.");
+		else if(x.Area() < y.Area())
+			System.out.println("Triangle Y has the largest area.");
 		else
-			System.out.println("X and Y have the same area.");
-		
+			System.out.println("Both triangles have the same area.");
 		sc.close();
 	}
 
