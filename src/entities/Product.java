@@ -30,7 +30,7 @@ public class Product {
 	
 	public String toString() {
 		return "Name: " + Name
-				+ "\nPrice: " + Price 
+				+ "\nPrice: R$" + String.format("%.2f", Price) 
 				+ "\nQuantity: " + Quantity;
 	}
 }
