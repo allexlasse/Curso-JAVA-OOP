@@ -1,8 +1,8 @@
 package application;
 import java.util.Locale;
 import java.util.Scanner;
-
-import entities.Triangle;
+import java.util.HashSet;
+import entities.Product;
 
 public class Program {
 
@@ -11,27 +11,22 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Triangle x = new Triangle() , y = new Triangle();
+		Product TV = new Product("TV", 900.00 , 10);
 		
-		System.out.println("Measures of triagle X: ");
-		x.a = sc.nextDouble();
-		x.b = sc.nextDouble();
-		x.c = sc.nextDouble();
+		System.out.println(TV + "\nTotal value in stock: " + TV.TotalValueInStock());
 		
-		System.out.println("Measures of triangle Y: ");
-		y.a = sc.nextDouble();
-		y.b = sc.nextDouble();
-		y.c = sc.nextDouble();
+		System.out.print("Quantity to be put in stock: ");
+		int add = sc.nextInt();
+		TV.AddProduct(add);
 		
-		System.out.println("Triangle X area: " + x.Area());
-		System.out.println("Triangle Y area: " + y.Area());
+		System.out.println("Updated data: \n" + TV + "\nTotal value in stock: " + TV.TotalValueInStock());
 		
-		if(x.Area() > y.Area())
-			System.out.println("Triangle X has the largest area.");
-		else if(x.Area() < y.Area())
-			System.out.println("Triangle Y has the largest area.");
-		else
-			System.out.println("Both triangles have the same area.");
+		System.out.print("Quantity to be removed from stock: ");
+		int remove = sc.nextInt();
+		TV.RemoveProduct(remove);
+		
+		System.out.println("Updated data: \n" + TV + "\nTotal value in stock: " + TV.TotalValueInStock());
+		
 		sc.close();
 	}
 
